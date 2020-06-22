@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Velo index{% endblock %}
+
+{% block body %}
+    <h1>Velo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Type</th>
+                <th>Annee</th>
+                <th>Etat</th>
+                <th>Prix</th>
+                <th>Nbvitesse</th>
+                <th>Typefrein</th>
+                <th>Modele</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for velo in velos %}
+            <tr>
+                <td>{{ velo.id }}</td>
+                <td>{{ velo.marque }}</td>
+                <td>{{ velo.type }}</td>
+                <td>{{ velo.annee }}</td>
+                <td>{{ velo.etat }}</td>
+                <td>{{ velo.prix }}</td>
+                <td>{{ velo.nbvitesse }}</td>
+                <td>{{ velo.typefrein }}</td>
+                <td>{{ velo.modele }}</td>
+                <td>
+                    <a href="{{ path('velo_show', {'id': velo.id}) }}">show</a>
+                    <a href="{{ path('velo_edit', {'id': velo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('velo_new') }}">Create new</a>
+{% endblock %}

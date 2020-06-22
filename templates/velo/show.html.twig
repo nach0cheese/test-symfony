@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Velo{% endblock %}
+
+{% block body %}
+    <h1>Velo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ velo.id }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ velo.marque }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ velo.type }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ velo.annee }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ velo.etat }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ velo.prix }}</td>
+            </tr>
+            <tr>
+                <th>Nbvitesse</th>
+                <td>{{ velo.nbvitesse }}</td>
+            </tr>
+            <tr>
+                <th>Typefrein</th>
+                <td>{{ velo.typefrein }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ velo.modele }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('velo_index') }}">back to list</a>
+
+    <a href="{{ path('velo_edit', {'id': velo.id}) }}">edit</a>
+
+    {{ include('velo/_delete_form.html.twig') }}
+{% endblock %}
