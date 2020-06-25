@@ -41,7 +41,7 @@ class VeloController extends AbstractController
             $entityManager->persist($velo);
             $entityManager->flush();
 
-            return $this->redirectToRoute('velo_index');
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('velo/new.html.twig', [

@@ -1,31 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Velo index{% endblock %}
+{% block title %}Liste des Velo{% endblock %}
 
 {% block body %}
-    <h1>Velo index</h1>
-
-    <table class="table">
+    <h1 class="text-center">Les vélos en boutique aujourd'hui :</h1>
+    <br>
+<div class="container">
+    <table class="table table-dark">
         <thead>
             <tr>
-                <th>Id</th>
+                {#<th>Id</th>#}
                 <th>Marque</th>
-                <th>Type</th>
-                <th>Annee</th>
+                <th>Style du vélo</th>
+                <th>Année</th>
                 <th>Etat</th>
                 <th>Prix</th>
-                <th>Nbvitesse</th>
-                <th>Typefrein</th>
-                <th>Modele</th>
-                <th>actions</th>
+                <th>Nombre de vitesse</th>
+                <th>Type de frein</th>
+                <th>Modèle</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for velo in velos %}
             <tr>
-                <td>{{ velo.id }}</td>
+                {#<td>{{ velo.id }}</td>#}
                 <td>{{ velo.marque }}</td>
-                <td>{{ velo.type }}</td>
+                <td>{{ velo.stylevelo }}</td>
                 <td>{{ velo.annee }}</td>
                 <td>{{ velo.etat }}</td>
                 <td>{{ velo.prix }}</td>
@@ -33,8 +34,8 @@
                 <td>{{ velo.typefrein }}</td>
                 <td>{{ velo.modele }}</td>
                 <td>
-                    <a href="{{ path('velo_show', {'id': velo.id}) }}">show</a>
-                    <a href="{{ path('velo_edit', {'id': velo.id}) }}">edit</a>
+                    <a href="{{ path('velo_edit', {'id': velo.id}) }}"><input type="button" class="btn btn-light" value="Editer"></a>
+                    <a href="{{ path('velo_delete', {'id': velo.id}) }}"><input type="button" class="btn btn-danger" value="Supprimer"></a>
                 </td>
             </tr>
         {% else %}
@@ -44,6 +45,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('velo_new') }}">Create new</a>
+</div>
+<div class="container">
+    <a href="{{ path('velo_new') }}"><input class="col-md btn btn-primary" value="Ajouter un Vélo" type="button"></a>
+</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Les velos de ouf{% endblock %}
 
 {% block body %}
     <main>
@@ -10,7 +10,8 @@
             </div>
             <ul class="list-group">
                 <a href="{{ path('velo_new') }}"><li class="list-group-item">Créer un velo</li></a>
-                <a><li class="list-group-item">Consulter les vélos</li></a>
+                <a href="{{ path('velo_index') }}"><li class="list-group-item">Consulter les vélos</li></a>
+                <a href="{{ path('contact') }}"><li class="list-group-item">Nous contacter</li></a>
 {#                <li class="list-group-item">Morbi leo risus</li>
                 <li class="list-group-item">Porta ac consectetur ac</li>
                 <li class="list-group-item">Vestibulum at eros</li>#}
